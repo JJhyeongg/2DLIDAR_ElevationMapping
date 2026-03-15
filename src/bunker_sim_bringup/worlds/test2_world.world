@@ -1,0 +1,92 @@
+<sdf version='1.7'>
+  <world name='default'>
+
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>2.9579e-06 -4.659e-06 -4.1542e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>37.32083333333334</latitude_deg>
+      <longitude_deg>120.1261111111111</longitude_deg>
+      <elevation>130</elevation>
+      <heading_deg>180</heading_deg>
+    </spherical_coordinates>
+
+
+
+    <model name='heightmap'>
+      <static>0</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <heightmap>
+              <uri>model://height_map_demo/materials/textures/heightmap_complex_3.tif</uri>
+              <size>129 129 0.3</size>
+              <pos>0 0 0</pos>
+            </heightmap>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual_abcedf'>
+          <geometry>
+            <heightmap>
+              <use_terrain_paging>0</use_terrain_paging>
+              <uri>model://height_map_demo/materials/textures/heightmap_complex_3.tif</uri>
+              <size>129 129 0.3</size>
+              <pos>0 0 0</pos>
+              <texture>
+                <diffuse>file://media/materials/textures/dirt_diffusespecular.png</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture>
+            </heightmap>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>0 0 0 0 -0 0</pose>
+    </model>
+
+    <state world_name='default'>
+      <sim_time>0</sim_time>
+      <real_time>0</real_time>
+      <wall_time>0</wall_time>
+      <iterations>0</iterations>
+      <model name='heightmap'>
+        <pose>0 0 0 0 0 0</pose>
+        <scale>0.1 0.1 0.1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+    </state>
+
+  </world>
+</sdf>

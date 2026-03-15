@@ -1,0 +1,35 @@
+scan_processor:
+  ros__parameters:
+    # 타임 동기화 허용 오차 (sec)
+    sync_limit_time: 0.05
+
+    # LiDAR extrinsic (lidar → base_footprint) -- 현장 캘리브레이션 값, 임의 수정 금지
+    bl_roll:  0.0
+    bl_pitch: -0.5235987755982988   # -30 deg
+    bl_yaw:   3.141592653589793     # 180 deg
+    bl_tx:    0.28517
+    bl_ty:    0.0
+    bl_tz:    0.0678
+
+    # GPS 고도 오프셋 -- 현장 캘리브레이션 값, 임의 수정 금지
+    odom_z_offset: -156.714   # -157.195 + 0.481
+
+    # 맵 기하
+    map_resolution: 0.1
+    map_width:      50.0
+    map_height:     50.0
+    max_distance:   2.0
+    default_meas_var: 0.01
+
+    # 프레임 이름
+    map_frame:         "map"
+    base_frame:        "calibrated_basefootprint"
+    rotated_map_frame: "map_elev"
+
+    # 알고리즘 선택 (true = 업데이트 및 발행)
+    enable_map_max: true
+    enable_map_kalman:      true
+    enable_map_dual_layer:  true
+
+    # 디버그 CSV 로그
+    enable_debug_csv: false
