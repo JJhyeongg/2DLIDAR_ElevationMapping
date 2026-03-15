@@ -9,7 +9,7 @@ ROS2 (Humble) 기반 자율 이동 로봇 시스템.
 
 - **GPS 웨이포인트 자율 주행** — Navigation2 스택 기반
 - **2D LiDAR 실시간 고도 맵 생성** — 틸트 마운팅된 RPLIDAR로 포인트 클라우드 재구성
-- **이중 UKF 센서 퓨전** — GPS/IMU 융합
+- **UKF 기반 센서 퓨전** — GPS/IMU 융합
 
 ---
 
@@ -80,7 +80,7 @@ map → map_rot → base_link → base_lidar
 |--------|------|
 | `rclcpp`, `sensor_msgs`, `nav_msgs` | ROS2 코어 |
 | `grid_map_ros` | 고도 그리드 맵 |
-| `robot_localization` | 이중 UKF 센서 퓨전 |
+| `robot_localization` | UKF 센서 퓨전 |
 | `nav2_*` | Navigation2 스택 |
 | `tf2_ros`, `tf2_geometry_msgs` | 좌표 변환 |
 | `message_filters` | ApproximateTime 동기화 |
@@ -131,7 +131,7 @@ rosbag/
 # grid_map
 sudo apt install ros-humble-grid-map
 
-# robot_localization (이중 UKF 센서 퓨전)
+# robot_localization (UKF 센서 퓨전)
 sudo apt install ros-humble-robot-localization
 
 # Navigation2
